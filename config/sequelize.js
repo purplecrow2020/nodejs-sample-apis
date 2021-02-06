@@ -2,11 +2,11 @@ const Sequelize = require('sequelize');
 const config = require('./config');
 
 
-console.log(config.mysql.write.host);
+console.log(config.mysql.host);
 
-const sequelize = new Sequelize(config.mysql.write.database,config.mysql.write.user,config.mysql.write.password, {
+const sequelize = new Sequelize(config.mysql.database,config.mysql.user,config.mysql.password, {
     dialect : 'mysql',
-    host: config.mysql.write.host,
+    host: config.mysql.host,
 });
 
 module.exports = sequelize;

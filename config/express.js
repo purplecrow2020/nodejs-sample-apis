@@ -30,7 +30,7 @@ app.use(bodyParser.json({ limit: '50mb' }));
 dbInit();
 
 async function dbInit(){
-    const  { host ,user, database, password} =  config.mysql.write;
+    const  { host ,user, database, password} =  config.mysql;
     const connection = await mysql.createConnection({ host, user, password});
     await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
     sequelize.sync().then((res)=>{
