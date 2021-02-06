@@ -1,34 +1,34 @@
-const Joi = require("joi");
+const Joi = require('joi');
 
 module.exports = {
     blog: {
-        getAll : {
-            body : {
-                
-            }
+        getAll: {
+            body: {
+
+            },
         },
         getById: {
-            post_id : Joi.number().required()
+            post_id: Joi.number().required(),
         },
-        filterPosts:{
-            body :{
-                filter_type : Joi.string().required(),
-                lookup : Joi.string().required()
-            }
+        filterPosts: {
+            body: {
+                filter_type: Joi.string().required(),
+                lookup: Joi.string().required(),
+            },
         },
-        addOne : {
-            body : {
-               title : Joi.string().email().required(), 
-               content : Joi.string().required()
-            }
+        addOne: {
+            body: {
+                title: Joi.string().email().required(),
+                content: Joi.string().required(),
+            },
         },
-        editBlogPost :{
-            body :{
+        editBlogPost: {
+            body: {
 
-            }
+            },
         },
-        deletePostsById : {
-            post_id : Joi.number().required()
-        }
-    }
+        deletePostsById: {
+            post_id: Joi.number().required(),
+        },
+    },
 };
