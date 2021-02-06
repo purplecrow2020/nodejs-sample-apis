@@ -34,7 +34,6 @@ async function dbInit(){
     const connection = await mysql.createConnection({ host, user, password});
     await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
     sequelize.sync().then((res)=>{
-        console.log('ok');
         UsersModel.findOne({
             where : {
                 is_admin : 1,
@@ -50,7 +49,7 @@ async function dbInit(){
             }
         });
     }).catch((err)=>{
-        console.log('oj');
+        console.log(err);
     });
 }
 

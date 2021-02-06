@@ -15,9 +15,16 @@ async function getAllBlogPosts(req, res, next) {
             data :blogPosts,
         };
         return res.status(responseData.meta.code).json(responseData);
-
     }catch(e){
-        console.log(e);
+        const responseData = {
+            meta: {
+                code: 403,
+                success: false,
+                message: e.message || 'ERROR',
+            },
+            data :null,
+        };
+        return res.status(responseData.meta.code).json(responseData); 
     }
 }
 
@@ -37,7 +44,15 @@ async function getPostById(req, res, next) {
         };
         return res.status(responseData.meta.code).json(responseData);
     }catch(e){
-        console.log(e);
+        const responseData = {
+            meta: {
+                code: 403,
+                success: false,
+                message: e.message || 'ERROR',
+            },
+            data :null,
+        };
+        return res.status(responseData.meta.code).json(responseData); 
     }
 }
 
@@ -61,9 +76,9 @@ async function addBlogPost(req, res, next) {
     } catch (e) {
         const responseData = {
             meta: {
-                code: 200,
+                code: 403,
                 success: false,
-                message: e.message,
+                message: e.message || 'ERROR',
             },
             data :null,
         };
@@ -177,7 +192,7 @@ async function filterBlogPosts(req,res,next){
     }catch(e){
         const responseData = {
             meta: {
-                code: 200,
+                code: 403,
                 success: false,
                 message: e.message,
             },

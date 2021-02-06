@@ -27,7 +27,7 @@ async function signUp(req,res,next){
         console.log(e.errors[0].message);
         const responseData = {
             meta: {
-                code: 401,
+                code: 403,
                 success: false,
                 message: (e.errors[0].message || 'ERROR')  ==  'email_id must be unique' ? 'SIGNED UP ALREADY, PLEASE LOGIN' : (e.errors[0].message || 'ERROR'),
             },

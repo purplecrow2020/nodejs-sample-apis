@@ -41,7 +41,7 @@ async function authenticateApiKey(req,res,next){
     }catch(e){
         const responseData = {
             meta: {
-                code: 200,
+                code: 401,
                 success: false,
                 message: e.message,
             },
