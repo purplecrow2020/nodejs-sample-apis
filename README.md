@@ -6,6 +6,7 @@
 # STEPS TO RUN 
 
 * env.example [env variables] must be specified
+* npm install
 * node index.js
 
 # RESULT
