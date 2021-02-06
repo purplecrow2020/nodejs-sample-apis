@@ -2,6 +2,7 @@
 
 * supports automatic mysql table creations
 * supports rate limit using redis database 
+* link to postman documentation ( newbie though :stuck_out_tongue_winking_eye:)
 
 # STEPS TO RUN 
 
