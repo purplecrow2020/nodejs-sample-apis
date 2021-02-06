@@ -24,7 +24,6 @@ async function signUp(req,res,next){
             return res.status(responseData.meta.code).json(responseData);
         }
     }catch(e){
-        console.log(e.errors[0].message);
         const responseData = {
             meta: {
                 code: 403,
@@ -66,7 +65,6 @@ async function login(req,res,next){
            throw new Error("INVALID EMAIL-ID OR PASSWORD");
         }
     }catch(e){
-        console.log(e);
         const responseData = {
             meta: {
                 code: 401,

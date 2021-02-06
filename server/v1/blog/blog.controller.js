@@ -31,9 +31,7 @@ async function getAllBlogPosts(req, res, next) {
 async function getPostById(req, res, next) {
     try{
         const post_id = req.params.post_id;
-        console.log("post_id",post_id);
         const blogDetails = await BlogsMysql.findByPk(post_id);
-        console.log(blogDetails);
         const responseData = {
             meta: {
                 code: 200,
@@ -89,7 +87,6 @@ async function addBlogPost(req, res, next) {
 async function editBlogPost(req, res, next) {
     try {
         const { post_id } = req.params;
-        console.log('post_id',post_id);
         const { title,content } = req.body;
         const post = await BlogsMysql.findByPk(post_id);
         if(_.isNull(post)){
@@ -115,6 +112,7 @@ async function editBlogPost(req, res, next) {
             };
             return res.status(responseData.meta.code).json(responseData);
         }else{
+            // CANNOT EDIT ELSE's POST IF NOT ADMIN
             throw new Error("INSUFFICIENT PERMISSIONS");
         }
     } catch (e) {
@@ -149,7 +147,7 @@ async function deletePostsById(req, res, next) {
             };
             return res.status(responseData.meta.code).json(responseData);
         }else{
-            // CANT DELETE OTHER's POST
+            // CANT DELETE OTHER's POST IF NOT ADMIN
             throw new Error("INSUFFICIENT PERMISSIONS");
         }
     }catch(e){
