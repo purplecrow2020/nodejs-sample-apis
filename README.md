@@ -1,1 +1,3 @@
-# nodejs-sample-apis
+# nodejs-sample-apis :fire:
+
+# STEPS TO RUN 
